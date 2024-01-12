@@ -1,0 +1,11 @@
+{
+  "name": "IonicLocalStorageExample",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "proxies": [{
+    "path": "/todo",
+    "proxyUrl": "http://172.22.3.192/todo/api.php"
+  }]
+}

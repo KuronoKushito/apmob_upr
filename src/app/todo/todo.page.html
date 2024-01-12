@@ -1,0 +1,24 @@
+<!-- src/app/todo/todo.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Capacitor SQLite Todo List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="addTodo()">Add Todo</ion-button>
+  
+  <ion-list *ngIf="todos.length > 0">
+    <ion-item *ngFor="let todo of todos">
+      <ion-label>{{ todo.task_name }}</ion-label>
+      <ion-checkbox [(ngModel)]="todo.completed" (ionChange)="updateTodoStatus(todo.id, todo.completed ? 1 : 0)"></ion-checkbox>
+      <ion-button slot="end" (click)="deleteTodo(todo.id)">Delete</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="todos.length === 0">No Todos</div>
+
+  <ion-button (click)="clearTodos()">Clear Todos</ion-button>
+</ion-content>
